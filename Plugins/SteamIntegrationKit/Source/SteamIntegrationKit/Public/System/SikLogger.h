@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Logging/LogMacros.h"
 #include "Logging/LogVerbosity.h"
+#include "Engine/Engine.h"
 
 /** Defined in UMssSubsystem.cpp */
 DECLARE_LOG_CATEGORY_EXTERN(SteamIntegrationKitLog, Log, All);

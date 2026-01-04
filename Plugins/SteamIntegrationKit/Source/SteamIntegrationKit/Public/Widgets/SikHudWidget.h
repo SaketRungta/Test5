@@ -98,7 +98,7 @@ private:
 	 * @param InCode: The code entered by the user
 	 * @return FText: The filtered out code that has to be displayed on the text box
 	 */
-	UFUNCTION(BlueprintCallable, Category = "SikHud")
+	UFUNCTION(BlueprintCallable, Category = "Defaults")
 	static FText FilterEnteredSessionCode(const FText& InCode);
 	
 	/** Subsystem that handles all the multiplayer functionality */
@@ -106,15 +106,15 @@ private:
 	TObjectPtr<USikSubsystem> SikSubsystem;
 
 	/** Path to the lobby map, we will travel to this map after creating a session successfully */
-	UPROPERTY(EditDefaultsOnly, Category = "Multiplayer Sessions Subsystem")
+	UPROPERTY(EditDefaultsOnly, Category = "Defaults")
 	FString LobbyMapPath = FString("");
 
 	/** Called when player opens the browse menu to start finding session only when browse menu is open */
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category = "Defaults")
 	void StartFindingSessions();
 	
 	/** Called when player closes the browse menu to stop finding session only when browse menu is closed */
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category = "Defaults")
 	void StopFindingSessions();
 	
 	/** Flag that allows to find sessions only when browse menu is open */
@@ -127,7 +127,7 @@ private:
 	FString SessionCodeToJoin = "";
 
 	/** Widget class to add to the session data scroll box */
-	UPROPERTY(EditDefaultsOnly, Category = "Multiplayer Sessions Subsystem")
+	UPROPERTY(EditDefaultsOnly, Category = "Defaults")
 	TSubclassOf<USikSessionDataWidget> SessionDataWidgetClass;
 	
 	UPROPERTY()
@@ -161,7 +161,7 @@ public:
 	 * @param InMessage: Message to display
 	 * @param bIsErrorMessage: True when it is an error message to that close button can be displayed
 	 */
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintImplementableEvent, Category = "Defaults")
 	void ShowMessage(const FString& InMessage, bool bIsErrorMessage = false);
 
 	/**
@@ -170,22 +170,22 @@ public:
 	 * 
 	 * @param InSessionDataWidget: The widget to add
 	 */
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintImplementableEvent, Category = "Defaults")
 	void AddSessionDataWidget(USikSessionDataWidget* InSessionDataWidget);
 
 	/** Sets visibility of the throbber depending on if any sessions are present or not */
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintImplementableEvent, Category = "Defaults")
 	void SetFindSessionsThrobberVisibility(ESlateVisibility InSlateVisibility);
 
 	/** 
 	 * Gets the user set filter of the sessions so that only the sessions that user wishes to
 	 * look for is only displayed in the result scroll box
 	 */
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintImplementableEvent, Category = "Defaults")
 	FSikCustomSessionSettings GetCurrentSessionsFilter();
 
 	/** Clears the result box in case of start or stop finding sessions */
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintImplementableEvent, Category = "Defaults")
 	void ClearSessionsScrollBox();
 	
 #pragma endregion Blueprint Events
